@@ -12,7 +12,7 @@ const Intro = () => {
                 <img src={start} className="start-btn" alt="시작 버튼" onClick={
                     () => {
                         document.getElementById('intro').classList.add("disappear")
-                        document.location.href = "#/main"
+                        document.location.href = "#main"
                     }
                 } />
             </div>
