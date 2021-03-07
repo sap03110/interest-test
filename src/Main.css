@@ -1,0 +1,494 @@
+@font-face {
+    font-family: 'TmoneyRoundWindRegular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.appear {
+    animation: fade-in .5s;
+    animation-fill-mode: forwards;
+}
+  
+.disappear {
+    animation: fade-out .5s;
+    animation-fill-mode: forwards;
+}
+  
+.fade-inout {
+    animation: fade-in-out 1s;
+    animation-fill-mode: forwards;
+}
+
+.fade-appear{
+    opacity: 0;
+}
+   
+.fade-appear.fade-appear-active  {
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+.fade-leave{
+    opacity: 1;
+}
+   
+.fade-leave.fade-leave-active  {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+* {
+    font-family: 'TmoneyRoundWindRegular';
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background: #f0e7cb;
+}
+
+#modal {
+    background-image: url(img/modal.png);
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 13px;
+    box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+    margin: auto;
+}
+
+#root {
+    width: 100vw;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#root > span {
+    display: block;
+}
+
+#root  {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.intro .title-img {
+    margin: -70px auto 0 auto;
+    width: 100%;
+    display: block;
+    max-width: 1200px;
+}
+
+#intro .start-btn {
+    margin: 0 auto;
+    cursor: pointer;
+    display: block;
+    max-width: 400px;
+    width: 80%;
+}
+
+.result-div img {
+    width: 90%;
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.part-list {
+    padding: 40px 16px;
+    text-align: left;
+}
+
+.result-div {
+    margin: 50px 0;
+}
+
+.result-cont .restart-btn {
+    margin: 40px auto 0 auto;
+    cursor: pointer;
+    display: block;
+    max-width: 400px;
+    width: 80%;
+}
+
+#main {
+    padding-bottom: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#result .label {
+    vertical-align: top;
+    width: 160px;
+    margin-left: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+    background-color: #ffd8a8;
+    display: inline-block;
+    font-family: 'S-CoreDream-3Light';
+}
+
+#result .label-cont {
+    line-height: 2.6rem;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+#result .label-cont.chart-div {
+    width: calc(90% - 200px);
+}
+
+@media (max-width: 800px) {
+    #result .label-cont {
+        display: block;
+        width: 90% !important;
+    }
+}
+
+#result .label-cont b {
+    color: #d94925;
+}
+
+.title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 2rem 0;
+    word-break: keep-all;
+}
+
+.title .etc-btn {
+    display: inline-block;
+    position: relative;
+    margin-left: 12px;
+}
+
+.title .etc-btn .etc-img {
+    position: absolute;
+    top: -50px;
+    cursor: pointer;
+}
+
+.sub {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    word-break: keep-all;
+}
+
+.btn {
+    border-style: none;
+    margin-top: 1.2rem;
+    border-color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 15px 100px;
+    font-weight: 600;
+}
+
+.start, .next, .close, .result {
+    position: relative;
+    background-color: #ffd8a8;
+    color: #111;
+    text-decoration-line: none;
+}
+
+.result {
+    display: inline-block;
+}
+
+.next:after {
+    position: absolute;
+    content: ">";
+    right: 15px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.result-cont .title, .result-cont .sub {
+    margin: 0;
+    padding: 40px 10px;
+}
+
+.result-cont {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-size: contain;
+    max-width: 1200px;
+    background-image: url(img/back2_mid.png);
+}
+
+.progress-div {
+    width: 100%;
+    text-align: right;
+    padding: 10px 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.progress-div > span {
+    position: absolute;
+    top: 12px;
+    right: 8vw;
+    font-size: 0.8rem;
+}
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    height: 20px;
+    margin: 0 auto;
+    border-radius: 6px;
+    width: 90vw;
+    text-align: right;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 12px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #d94925;
+  border-radius: 12px;
+}
+
+progress::-moz-progress-bar {
+  background-color: #eee;
+  border-radius: 8px;
+}
+
+.answer-list {
+    padding: 10px;
+}
+
+.etc-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.etc-list li {
+    padding: 10px;
+}
+
+#modal .close.btn {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.radio-div {
+    padding-left: 0;
+}
+
+.radio-btn {
+    cursor: pointer;
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+.radio-btn.selected {
+    background-color: #d94925;
+    color: #fff;
+    transition: .2s all ease-in-out;
+}
+
+.radio-btn:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.checks {
+    font-size: 1rem;
+    padding: 6px;
+    display: inline-block;
+}
+
+.checks2 {
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 20px;
+    border-top: 1px solid #111;
+}
+
+.checks2 .check-btn {
+    width: 25%;
+    height: 100px;
+    padding: 10px;
+    display: inline-block;
+    border-right: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 36px;
+  line-height: 32px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:before {  /* 가짜 체크박스 */
+  content: ' ';
+  display: inline-block;
+  width: 30px;  /* 체크박스의 너비를 지정 */
+  height: 30px;  /* 체크박스의 높이를 지정 */
+  line-height: 30px; /* 세로정렬을 위해 높이값과 일치 */
+  margin: -2px 8px 0 0;
+  text-align: center; 
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  border-radius : 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+
+input[type="checkbox"] + label:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    opacity: .6;
+    box-shadow: none;
+    border-color: #fac07a;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+  
+input[type="checkbox"]:checked + label:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    opacity:1; 
+    background: transparent;
+    border-color:transparent #d94925 #d94925 transparent;
+    border-top-color:transparent;
+    border-left-color:transparent;
+    content: "\2714";
+    top: 0;
+    left: 0;
+    width: 30px;
+    line-height: 30px;
+    color: #d94925;
+    text-align: center;
+    border: 1px solid #d94925;
+}
+
+.share-div {
+    padding: 40px 16px;
+}
+
+.share-div .title {
+    padding: 40px 10px 0 10px;
+}
+
+.share-div .share-btn-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.share-div .share-btn {
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 10px;
+    width: 45px;
+    height: 45px;
+    background-color: #fac07a;
+    cursor: pointer;
+}
+
+.share-div .share-btn.kakao {
+    background-color: #ffeb32;
+}
+
+.share-div .share-btn.facebook {
+    background-color: #3b5998;
+}
+
+.share-div .share-btn.twitter {
+    background-color: #03a9f4;
+}
+
+.share-div .share-btn.link {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.share-div .share-btn.twitter svg, .share-div .share-btn.kakao svg {
+    margin: 11px;
+}
+
+.share-div .share-btn.facebook svg, .share-div .share-btn.link svg {
+    margin: 11px 10px;
+}
