@@ -32,9 +32,6 @@ const Main = (props) => {
                         )
                     }
                 </h1>
-                {
-                    console.log(props.answer, props.answer2, props.answer3, props.answer4)
-                }
                 <div className="answer-list">
                     {
                         (props.num === 1) ? (

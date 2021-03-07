@@ -1,6 +1,5 @@
 import title from './img/title-img.png';
 import start from './img/start-btn.png';
-import { Link } from 'react-router-dom'; 
 
 const Intro = () => {
     return (
@@ -10,13 +9,12 @@ const Intro = () => {
                 {
                     /* <Link className="btn start" to="/main">시작하기</Link> */
                 }
-                <Link as={Link} to="main">
                 <img src={start} className="start-btn" alt="시작 버튼" onClick={
                     () => {
                         document.getElementById('intro').classList.add("disappear")
+                        document.location.href = "/interest-test#/main"
                     }
                 } />
-                </Link>
             </div>
         </div>
     );
