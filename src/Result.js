@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Top from './img/back2_top.png';
 import Bottom from './img/back2_bottom.png';
 import restart from './img/restart-btn.png';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Chart from 'react-apexcharts'; 
 import { Link } from 'react-router-dom'; 
+import Modal1 from './resultModal';
+import Modal2 from './resultModal2';
+import Modal3 from './resultModal3';
 
 const Result = (props) => {
+    const [modal1, openModal1] =  useState(false);
+    const [modal2, openModal2] =  useState(false);
+    const [modal3, openModal3] =  useState(false);
+    
     const chartInfo = {
         options: {
             chart: {
@@ -73,13 +80,31 @@ const Result = (props) => {
                     <p className="sub">자세한 결과는 각 영역별 '자세히 보기' 버튼을 클릭하여 확인하실 수 있습니다.</p>
                     <div className="part-list">
                         <p className="label">Part 1. 흥미</p>
+                        <p className="etc-btn" onClick={
+                                    () => {
+                                        openModal1(true);
+                                    }
+                                }>
+                            <svg id="bold" enableBackground="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#d94925" d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12zm5.25 13h-4.25v4.25c0 .552-.448 1-1 1s-1-.448-1-1v-4.25h-4.25c-.552 0-1-.448-1-1s.448-1 1-1h4.25v-4.25c0-.552.448-1 1-1s1 .448 1 1v4.25h4.25c.552 0 1 .448 1 1s-.448 1-1 1z"/>
+                            </svg>
+                        </p>
                         <p className="label-cont">
                             사용자님의 흥미 있는 4차 산업혁명 분야는 <b>{props.answer.join(", ")}</b>으로 나타났습니다.
                         </p>
                     </div>
                     <div className="part-list">
                         <p className="label">Part 2. 역량</p>
-                        <p className="label-cont chart-div">
+                        <p className="etc-btn" onClick={
+                                    () => {
+                                        openModal2(true);
+                                    }
+                                }>
+                            <svg id="bold" enableBackground="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#d94925" d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12zm5.25 13h-4.25v4.25c0 .552-.448 1-1 1s-1-.448-1-1v-4.25h-4.25c-.552 0-1-.448-1-1s.448-1 1-1h4.25v-4.25c0-.552.448-1 1-1s1 .448 1 1v4.25h4.25c.552 0 1 .448 1 1s-.448 1-1 1z"/>
+                            </svg>
+                        </p>
+                        <div className="label-cont chart-div">
                             <Chart
                                 options={chartInfo.options}
                                 series={chartInfo.series}
@@ -87,10 +112,19 @@ const Result = (props) => {
                                 width="100%"
                                 height="auto"
                             />
-                        </p>
+                        </div>
                     </div>
                     <div className="part-list">
                         <p className="label">Part 3. 개인 여건</p>
+                        <p className="etc-btn" onClick={
+                                    () => {
+                                        openModal3(true);
+                                    }
+                                }>
+                            <svg id="bold" enableBackground="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#d94925" d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12zm5.25 13h-4.25v4.25c0 .552-.448 1-1 1s-1-.448-1-1v-4.25h-4.25c-.552 0-1-.448-1-1s.448-1 1-1h4.25v-4.25c0-.552.448-1 1-1s1 .448 1 1v4.25h4.25c.552 0 1 .448 1 1s-.448 1-1 1z"/>
+                            </svg>
+                        </p>
                         <div className="label-cont">
                             <p>사용자님의 학습 장애요인은 <b>{props.answer3.join(", ")}</b>로 나타났습니다.</p>
                             <p>사용자님의 생애발달 과업에 따른 관심 분야는 <b>{props.answer4.length}</b>가지로, <b>{props.answer4.join(", ")}</b>으로 나타났습니다.</p>
@@ -147,12 +181,29 @@ const Result = (props) => {
                         <img src={restart} className="restart-btn" alt="제목 이미지" onClick={
                             () => {
                                 document.getElementById('result').classList.add("disappear")
+                                props.getNext(1)
+                                props.setAnswer([])
+                                props.setAnswer2([])
+                                props.setAnswer3([])
+                                props.setAnswer4([])
                             }
                         } />
                     </Link>
                 </div>
                 <img src={Bottom} alt="결과 이미지 푸터" />
             </div>
+            {
+                (modal1 === true) && 
+                <Modal1 openModal={openModal1} list={props.answer.join(", ")} />
+            }
+            {
+                (modal2 === true) && 
+                <Modal2 openModal={openModal2} list={props.answer2} question={props.question} />
+            }
+            {
+                (modal3 === true) && 
+                <Modal3 openModal={openModal3} list={props.answer3} />
+            }
         </div>
     );
 }

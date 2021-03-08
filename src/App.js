@@ -111,10 +111,16 @@ const App = () => {
                     } />
                     <Route path='/result' render={
                         () => <Result 
+                                question={question}
                                 answer={answer}
                                 answer2={answer2}
                                 answer3={answer3}
                                 answer4={answer4}
+                                getNext={getNext}
+                                setAnswer={setAnswer}
+                                setAnswer2={setAnswer2}
+                                setAnswer3={setAnswer3}
+                                setAnswer4={setAnswer4}
                             />
                     } />
                 </Switch>

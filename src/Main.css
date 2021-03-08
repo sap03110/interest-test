@@ -83,13 +83,16 @@
 }
 
 body {
-    background: #f0e7cb;
+    background: #fff7dc;
 }
 
 #modal {
     background-image: url(img/modal.png);
-    width: 400px;
-    height: 500px;
+    max-width: 400px;
+    max-height: 500px;
+    width: 95vw;
+    height: calc(95vw * 5 / 4);
+    background-size: 100% auto;
     position: absolute;
     z-index: 1;
     top: 50px;
@@ -101,20 +104,78 @@ body {
     margin: auto;
 }
 
+#result-modal {
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 11;
+    top: 3vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 92%;
+    height: 80vh;
+    max-width: 800px;
+    box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+    overflow-y: scroll;
+    
+}
+
+#result-modal::-webkit-scrollbar {
+    display: none; 
+}
+
+#result-modal .etc-list {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+#result-modal .etc-list li:before {
+    content: "· ";
+}
+
+#result-modal .etc-list li {
+    margin-bottom: 20px;
+}
+
+#result-modal .etc-list li.user-select {
+    font-weight: 600;
+    text-decoration: underline;
+    color: red;
+}
+
+#result-modal .etc-list li.user-select:before,
+#result-modal .share-btn-list li:before {
+    content: "";
+}
+
+#result-modal .result-modal-header {
+    border-bottom: 3px solid #000;
+    text-align: right;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+#result-modal .result-modal-header > svg {
+    cursor: pointer;
+}
+
 #root {
     width: 100vw;
     margin: 0 auto;
     height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #root > span {
     display: block;
-}
-
-#root  {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 .intro .title-img {
@@ -176,14 +237,24 @@ body {
 #result .label-cont {
     line-height: 2.6rem;
     margin-left: 20px;
+}
+
+#result .etc-btn {
+    width: calc(100% - 220px);
+    font-size: 0.8rem;
+    text-align: right;
     display: inline-block;
+    position: relative;
 }
 
-#result .label-cont.chart-div {
-    width: calc(90% - 200px);
+#result .etc-btn > svg {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
     #result .label-cont {
         display: block;
         width: 90% !important;
@@ -198,8 +269,12 @@ body {
     text-align: center;
     font-weight: 600;
     font-size: 2rem;
-    margin: 2rem 0;
+    margin: 2rem 5px;
     word-break: keep-all;
+}
+
+#main .title {
+    font-size: 1.8rem;
 }
 
 .title .etc-btn {
@@ -215,8 +290,8 @@ body {
 }
 
 .sub {
-    margin: 20px 0;
-    font-size: 1.2rem;
+    margin: 20px 5px;
+    font-size: 1rem;
     word-break: keep-all;
 }
 
@@ -232,7 +307,7 @@ body {
 
 .start, .next, .close, .result {
     position: relative;
-    background-color: #ffd8a8;
+    background-color: #f9bd8f;
     color: #111;
     text-decoration-line: none;
 }
@@ -314,6 +389,24 @@ progress::-moz-progress-bar {
 .etc-list {
     list-style: none;
     padding-left: 0;
+}
+
+table.etc-list {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+table.etc-list thead th, tr {
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+table.etc-list th, td {
+    padding: 20px 10px;
+    word-break: keep-all;
 }
 
 .etc-list li {
