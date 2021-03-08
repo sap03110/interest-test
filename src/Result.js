@@ -126,7 +126,7 @@ const Result = (props) => {
                             </svg>
                         </p>
                         <div className="label-cont">
-                            <p>사용자님의 학습 장애요인은 <b>{props.answer3.join(", ")}</b>로 나타났습니다.</p>
+                            <p>사용자님의 학습 장애요인은 <b>{props.answer3.join(", ")}</b>으로 나타났습니다.</p>
                             <p>사용자님의 생애발달 과업에 따른 관심 분야는 <b>{props.answer4.length}</b>가지로, <b>{props.answer4.join(", ")}</b>으로 나타났습니다.</p>
                         </div>
                     </div>

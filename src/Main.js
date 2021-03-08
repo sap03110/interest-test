@@ -14,7 +14,7 @@ const Main = (props) => {
             <div id="main" className={(props.selected === 0) ? "fade-inout" : ""}>
                 {
                     (props.num > 1 && props.num < 13) && (
-                        <p className="sub">* 각 분야에 대하여, 스스로 생각하는 본인의 역량 정도를 표시하세요. (모든 문항 필수)</p>
+                        <p className="sub">* 각 분야에 대하여, 스스로 생각하는 본인의 역량 정도를 표시하세요.</p>
                     )
                 }
                 <h1 className="title">
