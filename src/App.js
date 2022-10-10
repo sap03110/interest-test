@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import './styles/global.css';
 import Intro from './pages/Intro';
 import Main from './pages/Main';
 import Result from './pages/Result';
