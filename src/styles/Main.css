@@ -64,15 +64,14 @@
 }
 
 #modal {
-  background-image: url(../images/modal.png);
+  background-color: #fff;
+  border: 2px solid #111;
   max-width: 400px;
-  max-height: 500px;
   width: 95vw;
-  height: calc(95vw * 5 / 4);
-  background-size: 100% auto;
+  height: fit-content;
   position: absolute;
   z-index: 1;
-  top: 50px;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -396,11 +395,7 @@ td {
 }
 
 #modal .close.btn {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  margin: auto;
+  margin: 2rem 0;
 }
 
 .radio-div {
