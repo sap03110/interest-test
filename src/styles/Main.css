@@ -27,13 +27,11 @@
 }
 
 .appear {
-  animation: fade-in 0.5s;
-  animation-fill-mode: forwards;
+  animation: fade-in 0.2s;
 }
 
 .disappear {
-  animation: fade-out 0.5s;
-  animation-fill-mode: forwards;
+  animation: fade-out 0.2s;
 }
 
 .fade-inout {
@@ -63,21 +61,29 @@
   outline: none;
 }
 
-#modal {
-  background-color: #fff;
-  border: 2px solid #111;
-  max-width: 400px;
-  width: 95vw;
-  height: fit-content;
-  position: absolute;
-  z-index: 1;
+.modal-backdrop {
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 13px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+  background-color: #111111aa;
+  backdrop-filter: blur(2px);
+}
+
+#modal {
+  background-color: #fff;
+  border: 2px solid #111;
+  max-width: 400px;
+  height: fit-content;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
   margin: auto;
+  text-align: center;
 }
 
 #result-modal {
@@ -268,6 +274,11 @@
   margin: 20px 5px;
   font-size: 1rem;
   word-break: keep-all;
+}
+
+.sub::before {
+  content: '*';
+  margin-right: 4px;
 }
 
 .btn {
