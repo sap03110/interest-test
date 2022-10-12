@@ -414,24 +414,25 @@ td {
 }
 
 .radio-btn {
+  display: block;
   cursor: pointer;
   list-style: none;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 10px auto;
   border-radius: 8px;
   padding: 20px 0;
   background-color: #fff;
 }
 
-.radio-btn.selected {
+.radio-div input[type='radio'] {
+  display: none;
+}
+
+.radio-div input[type='radio']:checked + label {
   background-color: #d94925;
   color: #fff;
   transition: 0.2s all ease-in-out;
-}
-
-.radio-btn:not(:last-child) {
-  margin-bottom: 10px;
 }
 
 .checks {
