@@ -21,6 +21,10 @@ const CheckList = ({ selections }) => {
     checkAnswerSelected(isAnswerSelected);
   }, [checksInfo, checkAnswerSelected]);
 
+  useEffect(() => {
+    setChecksInfo(selections.map((content) => ({ content, checked: false })));
+  }, [selections]);
+
   return checksInfo.map(({ content, checked }) => (
     <CheckBox key={content} value={content} checked={checked} onChange={toggleCheck.bind(null, content)} />
   ));
