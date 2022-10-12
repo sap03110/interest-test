@@ -4,27 +4,26 @@ import questions from '../data/questions';
 
 const initialState = {
   questions,
-  answers: [],
+  answers: new Map(),
+  totalQuestionsSize: questions.length,
   questionNumber: 1,
-  selectedAnswerNumber: 0,
+  isAnswerSelected: false,
 };
 
 const useStore = create((set) => ({
   ...initialState,
   init: () => set({ ...initialState }),
-  selectAnswer: (answerNumber) => set({ selectedAnswerNumber: answerNumber }),
-  unselectAnswer: () => set({ selectedAnswerNumber: 0 }),
+  checkAnswerSelected: (isAnswerSelected) => set({ isAnswerSelected }),
   goNextQuestion: () =>
     set(({ questionNumber: currentQuestionNumber }) => ({
       questionNumber: currentQuestionNumber + 1,
+      isAnswerSelected: false,
     })),
-  setAnswer: (questionNumber, newAnswer) =>
-    set((prev) => ({
-      answers: prev.answers.map((answer, index) => {
-        if (questionNumber === index) return newAnswer;
-        return answer;
-      }),
-    })),
+  saveAnswer: (key, newAnswer) => {
+    set(({ answers: prevAnswers }) => ({
+      answers: prevAnswers.set(key, newAnswer),
+    }));
+  },
 }));
 
 export default useStore;
