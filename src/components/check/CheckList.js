@@ -6,6 +6,8 @@ import CheckBox from './CheckBox';
 const CheckList = ({ selections }) => {
   const [checksInfo, setChecksInfo] = useState(selections.map((content) => ({ content, checked: false })));
   const checkAnswerSelected = useStore((state) => state.checkAnswerSelected);
+  const questionNumber = useStore((state) => state.questionNumber);
+  const saveAnswer = useStore((state) => state.saveAnswer);
 
   const toggleCheck = (content) => {
     setChecksInfo((prevChecksInfo) =>
@@ -19,7 +21,12 @@ const CheckList = ({ selections }) => {
   useEffect(() => {
     const isAnswerSelected = checksInfo.filter(({ checked }) => checked).length > 0;
     checkAnswerSelected(isAnswerSelected);
-  }, [checksInfo, checkAnswerSelected]);
+
+    return () => {
+      const newAnswer = checksInfo.filter(({ checked }) => checked).map(({ content }) => content);
+      saveAnswer(questionNumber, newAnswer);
+    };
+  }, [checksInfo, checkAnswerSelected, saveAnswer, questionNumber]);
 
   useEffect(() => {
     setChecksInfo(selections.map((content) => ({ content, checked: false })));

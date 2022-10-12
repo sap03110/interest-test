@@ -10,6 +10,8 @@ const RadioList = () => {
   const [selectInfo, setSelectInfo] = useState(initialSelectInfo);
   const checkAnswerSelected = useStore((state) => state.checkAnswerSelected);
   const isAnswerSelected = useStore((state) => state.isAnswerSelected);
+  const questionNumber = useStore((state) => state.questionNumber);
+  const saveAnswer = useStore((state) => state.saveAnswer);
 
   const radioClick = (label) => {
     setSelectInfo((prevSelectInfo) =>
@@ -23,6 +25,12 @@ const RadioList = () => {
 
   useEffect(() => {
     if (!isAnswerSelected) setSelectInfo(initialSelectInfo);
+
+    return () => {
+      const newAnswer = selectInfo.filter(({ checked }) => checked).map(({ label }) => label);
+      saveAnswer(questionNumber, newAnswer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAnswerSelected]);
 
   return (
