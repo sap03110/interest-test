@@ -32,7 +32,7 @@ const Main = () => {
   return (
     <>
       <div id="main" className={isAnswerSelected ? '' : 'fade-inout'}>
-        {isMultipleQuestion && <p className="sub">{MAIN_SUBTITLE}</p>}
+        {isMultipleQuestion && <p className="sub has-star">{MAIN_SUBTITLE}</p>}
         <h1 className="title">
           {questionNumber}. {title}
           {isMultipleQuestion && (

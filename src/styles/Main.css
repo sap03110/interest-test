@@ -181,9 +181,14 @@
   margin: 0 auto;
 }
 
-.part-list {
+.part-box {
   padding: 40px 16px;
   text-align: left;
+}
+
+.part-box .part-header {
+  display: flex;
+  margin: 0 20px;
 }
 
 .result-div {
@@ -205,41 +210,20 @@
 }
 
 #result .label {
-  vertical-align: top;
   width: 160px;
-  margin-left: 20px;
   font-weight: 600;
   padding: 10px 20px;
+  margin-right: auto;
   background-color: #ffd8a8;
-  display: inline-block;
   font-family: 'S-CoreDream-3Light';
 }
 
 #result .label-cont {
-  line-height: 2.6rem;
   margin-left: 20px;
 }
 
-#result .etc-btn {
-  width: calc(100% - 220px);
-  font-size: 0.8rem;
-  text-align: right;
-  display: inline-block;
-  position: relative;
-}
-
-#result .etc-btn > svg {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
-}
-
-@media (min-width: 800px) {
-  #result .label-cont {
-    display: block;
-    width: 90% !important;
-  }
+#result .label-cont p {
+  margin: 20px 0;
 }
 
 #result .label-cont b {
@@ -277,7 +261,7 @@
   text-align: center;
 }
 
-.sub::before {
+.sub.has-star::before {
   content: '*';
   margin-right: 4px;
 }
@@ -329,7 +313,7 @@ button {
 .result-cont .title,
 .result-cont .sub {
   margin: 0;
-  padding: 40px 10px;
+  padding: 20px 10px;
 }
 
 .result-cont {
