@@ -4,7 +4,7 @@ import { RADIO_BUTTON_TEXTS } from '../../constants';
 import useStore from '../../store';
 import RadioBox from './RadioBox';
 
-const initialSelectInfo = RADIO_BUTTON_TEXTS.map((label) => ({ label, checked: false }));
+const initialSelectInfo = RADIO_BUTTON_TEXTS.map((label, index) => ({ label, value: index + 1, checked: false }));
 
 const RadioList = () => {
   const [selectInfo, setSelectInfo] = useState(initialSelectInfo);
@@ -27,8 +27,8 @@ const RadioList = () => {
     if (!isAnswerSelected) setSelectInfo(initialSelectInfo);
 
     return () => {
-      const newAnswer = selectInfo.filter(({ checked }) => checked).map(({ label }) => label);
-      saveAnswer(questionNumber, newAnswer);
+      const newAnswer = selectInfo.find(({ checked }) => checked);
+      if (newAnswer) saveAnswer(questionNumber, newAnswer.value);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAnswerSelected]);
