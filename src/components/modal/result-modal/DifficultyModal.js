@@ -1,44 +1,33 @@
-const resultModal3 = ({ list, openModal }) => {
+import ResultModal from './ResultModal';
+
+const DifficultyModal = ({ difficultyAnswer, closeModal }) => {
+  const isDifficultyExists = !difficultyAnswer.length;
+  const situationDifficulty = difficultyAnswer.filter(
+    (cont) => cont.includes('시간이') || cont.includes('돈이') || cont.includes('마음의'),
+  );
+  const policyDifficulty = difficultyAnswer.filter(
+    (cont) => cont.includes('가까운') || cont.includes('교육이') || cont.includes('프로그램'),
+  );
+  const privacyDifficulty = difficultyAnswer.filter(
+    (cont) => cont.includes('함께') || cont.includes('동기') || cont.includes('기초'),
+  );
+  const periodDifficulty = difficultyAnswer.filter((cont) => cont.includes('디지털') || cont.includes('4차'));
+
   return (
-    <div id="result-modal" className="appear">
-      <div className="result-modal-header">
-        <svg
-          onClick={() => {
-            document.getElementById('result-modal').classList.add('disappear');
-            setTimeout(() => openModal(false), 500);
-          }}
-          height="24"
-          viewBox="0 0 329.26933 329"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" />
-        </svg>
-      </div>
-      <h1 className="title">결과 상세</h1>
+    <ResultModal closeModal={closeModal}>
       <ul className="etc-list">
-        {list.length === 0 ? (
-          <li>
-            사용자님의 학습 장애요인은 <b>없는 것</b>으로 나타났습니다.
-          </li>
-        ) : (
-          <li>
-            사용자님의 학습 장애요인은 <b>{list.join(', ')}</b>으로 나타났습니다.
-          </li>
-        )}
+        <li>
+          사용자님의 학습 장애요인은 {isDifficultyExists ? difficultyAnswer.join(', ') : <b>없는 것</b>}으로
+          나타났습니다.
+        </li>
         <li>
           <b>상황적 요인</b>은 주어진 시점에서 자신을 둘러싼 물리적/사회적 상황이나 환경 속에서 방해가 되는 요인을
           의미합니다. 비용이나 시간의 부족, 가족 및 직장, 문화적인 이유 등을 포함하고 있습니다.
         </li>
-        {list.filter((cont) => cont.includes('시간이') || cont.includes('돈이') || cont.includes('마음의')).length >
-          0 && (
+        {situationDifficulty.length > 0 && (
           <li className="user-select">
             응답하신 항목:
-            {list
-              .filter((cont) => cont.includes('시간이') || cont.includes('돈이') || cont.includes('마음의'))
-              .map((i) => {
-                return i;
-              })}
+            {situationDifficulty.map((i) => i)}
           </li>
         )}
         <li>
@@ -47,15 +36,10 @@ const resultModal3 = ({ list, openModal }) => {
           있습니다. 때문에 특정 대상이 배제되는 경우가 존재합니다. 또한 프로그램에 대한 정보가 부족하여 학습의 기회를
           제공받지 못하는 경우도 포함됩니다.
         </li>
-        {list.filter((cont) => cont.includes('가까운') || cont.includes('교육이') || cont.includes('프로그램')).length >
-          0 && (
+        {policyDifficulty.length > 0 && (
           <li className="user-select">
             응답하신 항목:
-            {list
-              .filter((cont) => cont.includes('가까운') || cont.includes('교육이') || cont.includes('프로그램'))
-              .map((i) => {
-                return i;
-              })}
+            {policyDifficulty.map((i) => i)}
           </li>
         )}
         <li>
@@ -64,14 +48,10 @@ const resultModal3 = ({ list, openModal }) => {
           것에 대한 개인적인 신념, 가치관, 태도 또는 인식을 말합니다. 또한 동기나 자신감, 인지력, 사전 지식 등을
           포함합니다.
         </li>
-        {list.filter((cont) => cont.includes('함께') || cont.includes('동기') || cont.includes('기초')).length > 0 && (
+        {privacyDifficulty.length > 0 && (
           <li className="user-select">
             응답하신 항목:
-            {list
-              .filter((cont) => cont.includes('함께') || cont.includes('동기') || cont.includes('기초'))
-              .map((i) => {
-                return i;
-              })}
+            {privacyDifficulty.map((i) => i)}
           </li>
         )}
         <li>
@@ -79,14 +59,10 @@ const resultModal3 = ({ list, openModal }) => {
           부족해서’와 같이 관련 학습 활동을 참여하는 것에 기술적인 발전을 따라갈 수 있는 능력, 혹은 빠르게 변화하는 4차
           산업에 대한 정보 부족 등을 포함합니다.
         </li>
-        {list.filter((cont) => cont.includes('디지털') || cont.includes('4차')).length > 0 && (
+        {periodDifficulty.length > 0 && (
           <li className="user-select">
             응답하신 항목:
-            {list
-              .filter((cont) => cont.includes('디지털') || cont.includes('4차'))
-              .map((i) => {
-                return i;
-              })}
+            {periodDifficulty.map((i) => i)}
           </li>
         )}
       </ul>
@@ -154,8 +130,8 @@ const resultModal3 = ({ list, openModal }) => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </ResultModal>
   );
 };
 
-export default resultModal3;
+export default DifficultyModal;

@@ -14,7 +14,7 @@ const CategoryModal = ({ items, closeModal }) => {
         <h1 className="title">{MODAL_TITLE}</h1>
         <ul className="etc-list">
           {items.map((item) => (
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
         <Button className="close" onClick={closeModal}>
