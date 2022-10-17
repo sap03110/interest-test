@@ -163,7 +163,7 @@
   margin: -70px auto 0 auto;
   width: 100%;
   display: block;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 #intro .start-btn {
@@ -226,7 +226,7 @@
   margin: 20px 0;
 }
 
-#result .label-cont b {
+b {
   color: #d94925;
 }
 
@@ -531,8 +531,7 @@ input[type='checkbox']:checked + label:before {
 }
 
 .share-div .share-btn-list {
-  list-style: none;
-  padding-left: 0;
+  padding: 20px 0;
   text-align: center;
 }
 
