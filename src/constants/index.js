@@ -12,6 +12,9 @@ export const START_BUTTON_TEXT = '테스트 시작';
 // element title
 export const MODAL_TITLE = '관련 역량';
 export const MAIN_SUBTITLE = '각 분야에 대하여, 스스로 생각하는 본인의 역량 정도를 표시하세요.';
+export const RESULT_TITLE = '진단 결과';
+export const RESULT_SUBTITLE = "자세한 결과는 각 영역별 '자세히 보기' 버튼을 클릭하여 확인하실 수 있습니다.";
+export const RESULT_PART_TITLES = ['흥미', '역량', '개인 여건'];
 export const RESULT_MODAL_TITLE = '결과 상세';
 export const SHARE_TITLE = '공유하기';
 export const SHARE_SUBTITLE = '친구들과 테스트를 공유하고 함께 하고 싶다면?';
