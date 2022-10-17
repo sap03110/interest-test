@@ -1,0 +1,69 @@
+@import url('fonts');
+
+body {
+  color: #111;
+  background: #fff7dc;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+blockquote,
+body,
+dd,
+dl,
+dt,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+html,
+iframe,
+legend,
+li,
+ol,
+p,
+pre,
+textarea,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
+section {
+  padding: 6rem 0.4rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: unset;
+  color: #111;
+}
+
+a:visited {
+  color: #111;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
